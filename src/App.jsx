@@ -160,8 +160,10 @@ function App() {
     const handleKeyPress = (e) => {
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
         setCurrentSlide(prev => prev === 0 ? prompts.slides.length - 1 : prev - 1);
+        setShowAuthCenter(false);
       } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
         setCurrentSlide(prev => prev === prompts.slides.length - 1 ? 0 : prev + 1);
+        setShowAuthCenter(false);
       }
     };
 
@@ -262,6 +264,7 @@ function App() {
     setTimeout(() => {
       setRunTutorial(true);
     }, 500);
+    setShowAuthCenter(false);
   };
 
   useEffect(() => {
@@ -301,6 +304,7 @@ function App() {
     setTimeout(() => {
       setRunTutorial(true);
     }, 500);
+    setShowAuthCenter(false);
   };
 
   const renderSlideList = () => {
@@ -441,11 +445,10 @@ function App() {
           <ul className={`slide-list ${!isTOCOpen ? 'hidden' : ''}`}>
             
             <div className="auth-center">
-              <a href="#" onClick={(e) => {
-                e.preventDefault();
-                setShowAuthCenter(true);
-              }}>
-                ChatGPT 인증번호 확인
+              <a href="https://drive.google.com/file/d/1BvWSidH4lpOGzHePhqvHqptxdHCSMKdN/view?usp=sharing" 
+                 target="_blank" 
+                 rel="noopener noreferrer">
+                실습파일 다운로드
               </a>
             </div>
            
